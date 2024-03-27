@@ -3,7 +3,7 @@ package com.backend.clinicaDental.service.impl;
 import com.backend.clinicaDental.dto.entrada.OdontologoEntradaDto;
 import com.backend.clinicaDental.dto.salida.OdontologoSalidaDto;
 import com.backend.clinicaDental.entity.Odontologo;
-import com.backend.clinicaDental.exceptions.ResourceNotFoundException;
+
 import com.backend.clinicaDental.repository.OdontologoRepository;
 import com.backend.clinicaDental.service.IOdontologoService;
 

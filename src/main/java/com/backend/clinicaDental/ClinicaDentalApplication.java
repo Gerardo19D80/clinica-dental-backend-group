@@ -7,8 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 //anotacion que indica que es la ventana principal para correr la app.
 @SpringBootApplication
@@ -22,7 +20,7 @@ public class ClinicaDentalApplication {
 
 		//crearTabla(); | *** se quita porque no se va a usar, lo dejo como ejemplo grabado en el codigo. ***
 
-		LOGGER.info("Clase13Application is now running...");
+		LOGGER.info("Application is now running...");
 		//LOGGER.error("este es un mensaje de error");
 		//LOGGER.warn("este es un mensaje de warn");
 

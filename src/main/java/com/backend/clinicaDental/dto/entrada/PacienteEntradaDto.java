@@ -20,7 +20,6 @@ public class PacienteEntradaDto {
     private String apellido;
 
     @Positive(message = "El dni del paciente no puede ser nulo o menor a cero")
-    @Size(max = 10, message = "el DNI no debe tener mas caracteres de los que tienes")
     private int dni;
 
     @FutureOrPresent(message = "La fecha no puede ser anterior al día de hoy")
