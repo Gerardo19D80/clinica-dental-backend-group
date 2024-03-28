@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/odontologos")
+@CrossOrigin(origins = "*")
 public class OdontologoController {
     private IOdontologoService odontologoService;
 
@@ -30,7 +31,7 @@ public class OdontologoController {
         return new ResponseEntity<>(odontologoService.listarOdontologos(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}") //localhost:8084/odontologos/x
+    @GetMapping("/{id}") //localhost:8085/odontologos/x
     public ResponseEntity<OdontologoSalidaDto> buscarOdontologoPorId(@PathVariable Long id){
         return new ResponseEntity<>(odontologoService.buscarOdontologoPorId(id), HttpStatus.OK);
     }
@@ -42,13 +43,13 @@ public class OdontologoController {
     }
 
     //PUT
-    @PutMapping("/actualizar/{id}")//localhost:8084/odontologos/actualizar/x
+    @PutMapping("/actualizar/{id}")//localhost:8085/odontologos/actualizar/x
     public ResponseEntity<OdontologoSalidaDto> actualizarOdontologo(@RequestBody @Valid OdontologoEntradaDto odontologo, @PathVariable Long id) {
         return new ResponseEntity<>(odontologoService.modificarOdontologo(odontologo, id), HttpStatus.OK);
     }
 
     //DELETE
-    @DeleteMapping("/eliminar/{id}")//localhost:8084/odontologos/eliminar/x
+    @DeleteMapping("/eliminar/{id}")//localhost:8085/odontologos/eliminar/x
     public ResponseEntity<?> eliminarOdontologo(@PathVariable Long id) {
         odontologoService.eliminarOdontologo(id);
         return new ResponseEntity<>("Odontologo eliminado correctamente", HttpStatus.NO_CONTENT);

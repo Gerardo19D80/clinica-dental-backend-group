@@ -2,9 +2,7 @@ package com.backend.clinicaDental.service.impl;
 
 import com.backend.clinicaDental.dto.entrada.OdontologoEntradaDto;
 import com.backend.clinicaDental.dto.salida.OdontologoSalidaDto;
-import com.backend.clinicaDental.dto.salida.PacienteSalidaDto;
-import com.backend.clinicaDental.entity.Odontologo;
-import com.backend.clinicaDental.exceptions.ResourceNotFoundException;
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -49,6 +47,20 @@ class OdontologoServiceTest {
         assertFalse(odontologos.isEmpty());
     }
 
+    @Test
+    @Order(3)
+    void deberiaModificarUnOdontologoExistente() {
+
+        Long idOdontologoExistente = 1L;
+        OdontologoEntradaDto datosNuevos = new OdontologoEntradaDto("10020", "Onto", "Logo");
+        OdontologoSalidaDto odontologoModificado = odontologoService.modificarOdontologo(datosNuevos, idOdontologoExistente);
+
+        assertNotNull(odontologoModificado);
+        assertEquals(idOdontologoExistente, odontologoModificado.getId());
+        assertEquals("10020", odontologoModificado.getMatricula());
+        assertEquals("Onto", odontologoModificado.getNombre());
+        assertEquals("Logo", odontologoModificado.getApellido());
+    }
 
 
 }

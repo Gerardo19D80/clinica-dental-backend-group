@@ -1,0 +1,12 @@
+/* Estilos básicos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Estilos para el título */
+h1 {
+    color: blueviolet;
+}

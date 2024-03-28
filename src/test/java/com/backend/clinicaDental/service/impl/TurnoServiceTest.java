@@ -1,16 +1,20 @@
 package com.backend.clinicaDental.service.impl;
 
+
 import com.backend.clinicaDental.dto.entrada.TurnoEntradaDto;
+
+import com.backend.clinicaDental.dto.salida.TurnoSalidaDto;
+
+import com.backend.clinicaDental.exceptions.BadRequestException;
 import com.backend.clinicaDental.exceptions.ResourceNotFoundException;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +25,7 @@ class TurnoServiceTest {
 
     @Autowired
     TurnoService turnoService;
+
 
 
     @Test
@@ -37,6 +42,11 @@ class TurnoServiceTest {
         assertThrows(ResourceNotFoundException.class,() -> turnoService.eliminarTurno(1L));
     }
 
-
+    @Test
+    @Order(2)
+    void deberiaDevolverUnaListaVaciaDeTurnos() {
+        List<TurnoSalidaDto> turnos = turnoService.listarTurnos();
+        assertTrue(turnos.isEmpty());
+    }
 
 }

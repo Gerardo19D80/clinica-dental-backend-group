@@ -29,7 +29,7 @@ public class TurnoController {
         return new ResponseEntity<>(turnoService.listarTurnos(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}") // localhost:8084/turnos/x
+    @GetMapping("/{id}") // localhost:8085/turnos/x
     public ResponseEntity<TurnoSalidaDto>  buscarTurnoPorId(@PathVariable Long id) {
         return new ResponseEntity<>(turnoService.buscarTurnoPorId(id), HttpStatus.OK);
     }
@@ -43,13 +43,13 @@ public class TurnoController {
 
 
     //PUT
-    @PutMapping("/actualizar/{id}") // localhost:8084/turnos/actualizar/x
+    @PutMapping("/actualizar/{id}") // localhost:8085/turnos/actualizar/x
     public ResponseEntity<TurnoSalidaDto> actualizarTurno(@RequestBody @Valid TurnoEntradaDto turno, @PathVariable Long id){
         return new ResponseEntity<>(turnoService.modificarTurno(turno, id), HttpStatus.OK);
     }
 
     //DELETE
-    @DeleteMapping ("/eliminar") //localhost:8084/turnos/eliminar?id=x
+    @DeleteMapping ("/eliminar") //localhost:8085/turnos/eliminar?id=x
     public ResponseEntity<?> eliminarTurno (@RequestParam Long id) throws ResourceNotFoundException {
         turnoService.eliminarTurno(id);
         return new ResponseEntity<>("Turno eliminado correctamente", HttpStatus.NO_CONTENT);

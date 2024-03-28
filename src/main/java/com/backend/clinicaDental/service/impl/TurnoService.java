@@ -26,6 +26,7 @@ public class TurnoService implements ITurnoService {
     private final Logger LOGGER = LoggerFactory.getLogger(TurnoService.class);
     private final TurnoRepository turnoRepository;
     private final ModelMapper modelMapper;
+
     private final PacienteService pacienteService;
     private final OdontologoService odontologoService;
 
